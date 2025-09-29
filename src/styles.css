@@ -1,1 +1,115 @@
-/* You can add global styles to this file, and also import other style files */
+/*-----------------------------------*\
+  global style
+\*-----------------------------------*/
+
+/**
+ * copyright 2025 OUERFELLI Mohamed - LoL - Front-End IT OPS - Test Technique - CFM
+ */
+
+:root {
+
+  /**
+   * colors
+   */
+  --black-rgb: rgb(16, 16, 20);
+  --white: #FFFFFF;
+  --granite-gray: hsl(0, 0%, 40%);
+  --btn-primary: rgb(0, 178, 207);
+  --black: 0, 0, 0;
+  /**
+   * font size
+   */
+  --fs-1: 1.1rem;
+  --fs-2: 1.2rem;
+  --fs-3: 1.3rem;
+  /**
+   * font weight
+   */
+  --fw-800: 800;
+  --fw-700: 700;
+  --fw-600: 600;
+  --fw-500: 500;
+  --fw-400: 400;
+  --fw-300: 300;
+  /**
+   * transitions
+   */
+  --transition-1: 0.25s ease;
+  --transition-2: 0.5s ease;
+  --cubic-out: cubic-bezier(0.33, 0.85, 0.4, 0.96);
+  /**
+   * radius
+   */
+  --radius-5: 5px;
+  --radius-6: 6px;
+  --radius-8: 8px;
+
+  --navbar-background-blur: 20px;
+  --navbar-background-color: rgba(44 ,146 ,240, 0.2);
+  --navbar-background-color-hover: rgba(255, 255, 255, 0.2);
+
+
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /*border: 1px solid red;*/
+}
+
+html, body {
+  height: 100%;
+  font-family: "Poppins", helvetica, arial, sans-serif;
+  font-style: normal;
+}
+body {
+  background: var(--black-rgb);
+  color: var(--white);
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+::-webkit-scrollbar {
+  height: 6px;
+  width: 6px
+}
+
+::-webkit-scrollbar-button {
+  display: none
+}
+
+::-webkit-scrollbar-track, ::-webkit-scrollbar-track-piece {
+  background-color: transparent
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(43, 42, 42, .63);
+  border: 1px solid hsla(0, 0%, 100%, .21);
+  border-radius: 4px;
+  height: 50px;
+  width: 3px
+}
+
+::-webkit-scrollbar-corner {
+  background-color: #000
+}
+
+::-webkit-resizer {
+  background-color: #838383
+}
+
+/*-----------------------------------*\
+  #ANIMATIONS
+\*-----------------------------------*/
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--btn-primary);
+  }
+  100% {
+    box-shadow: 0 0 0 12px transparent;
+  }
+}
