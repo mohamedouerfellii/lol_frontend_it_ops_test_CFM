@@ -12,24 +12,34 @@
   </video>
 
   <div class="content">
-    <img src="banner_img.png">
+    <img src="banner_img.png" alt="Banner Image">
     <span>League of Legends : un MOBA en 5c5 dans lequel les équipes s'affrontent pour détruire le Nexus ennemi</span>
     <a>jouez gratuitement</a>
   </div>
 </section>
 
-<section>
-  <div>
-    hhhh
-  </div>
-  <div>
-    hhhh
-  </div>
-  <div>
-    hhhh
-  </div>
-  <div>
-    hhhh
+<section class="champions">
+
+  <div class="content">
+    <div class="description">
+      <span class="sub-title">CHOISISSEZ VOTRE</span>
+      <span class="title">CHAMPION</span>
+      <p>Que vous souhaitiez foncer dans la mêlée, soutenir vos alliés ou trouver un entre-deux, vous trouverez forcément votre bonheur dans la Faille.</p>
+    </div>
+
+    <a>Découvrir plus de champions</a>
+
+    <div class="powers">
+      @for(i of powers; track i) {
+        <div class="single-power">
+          <img src="powers/{{i}}.png" alt="Power">
+          <span>{{categories[i-1]}}</span>
+        </div>
+      }
+    </div>
   </div>
 
+  <div class="img-holder">
+    <img src="home_player.png" alt="Home Player">
+  </div>
 </section>

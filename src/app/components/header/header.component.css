@@ -45,8 +45,11 @@
 .item a {
   font-size: var(--fs-1);
   font-weight: var(--fw-500);
+  color: var(--white);
+  text-decoration: none;
 }
 
-.item:has(a:hover) {
+.item:has(a:hover), .item:has(a.active) {
   background-color: var(--navbar-background-color-hover);
 }
+

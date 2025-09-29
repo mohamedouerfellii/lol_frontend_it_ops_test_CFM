@@ -61,3 +61,101 @@
   opacity: 0.9;
 }
 
+/**** CHAMPIONS ****/
+.champions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 6rem;
+  gap: 3rem;
+}
+
+.champions .img-holder {
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 1rem;
+  background: radial-gradient(circle at center, var(--navbar-background-color) 0%, transparent 70%);
+}
+
+.champions .img-holder img {
+  width: 400px;
+  height: 400px;
+  animation: zoomFade 3s ease-in-out infinite;
+}
+
+.champions .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.champions .content .description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.description .title {
+  font-size: var(--fs-4);
+  font-weight: var(--fw-600);
+  color: var(--yellow);
+}
+
+.description .sub-title {
+  font-size: var(--fs-1);
+  font-weight: var(--fw-400);
+}
+
+.description p {
+  font-size: var(--fs-1);
+  font-weight: var(--fw-400);
+  text-align: center;
+}
+
+.content a {
+  background-color: var(--yellow);
+  color: var(--white);
+  padding: 15px 30px;
+  border-radius: var(--radius-8);
+  font-size: var(--fs-1);
+  font-weight: var(--fw-500);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.content a:hover {
+  opacity: 0.8;
+}
+
+.powers {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.single-power {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  background-color: var(--granite-gray);
+  border-radius: var(--radius-8);
+  transition: transform 0.3s ease-in-out;
+}
+
+.single-power img {
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+}
+
+.single-power:hover {
+  transform: scale(1.1);
+}

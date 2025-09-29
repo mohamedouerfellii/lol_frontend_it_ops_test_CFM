@@ -1,0 +1,16 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5rem;
+  padding: 1rem;
+}
+
+.footer a {
+  text-decoration: none;
+  color: var(--yellow);
+}
+
+.footer a:hover {
+  opacity: 0.85;
+}

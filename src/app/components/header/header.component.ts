@@ -1,7 +1,6 @@
-import {AfterViewInit, Component, HostListener} from '@angular/core';
+import { Component, HostListener} from '@angular/core';
 import {NgClass} from "@angular/common";
 import {RouterLink, RouterLinkActive} from "@angular/router";
-
 @Component({
   selector: 'app-header',
   standalone: true,
