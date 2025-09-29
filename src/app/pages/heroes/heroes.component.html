@@ -1,0 +1,111 @@
+<section class="hero-section">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">
+      <span class="gradient-text">CHOISISSEZ</span> VOTRE CHAMPION
+    </h1>
+    <p class="hero-subtitle">
+      Avec plus de 170 champions disponibles, vous en trouverez forcément un qui vous corresponde. Maîtrisez-en un, ou
+      maîtrisez-les tous.
+    </p>
+  </div>
+  <!--  &lt;!&ndash; filter &ndash;&gt;-->
+  <!--  <div class="filters-container">-->
+  <!--    <div class="filter-row">-->
+  <!--      &lt;!&ndash; Genre Filter &ndash;&gt;-->
+  <!--      <div class="filter-group">-->
+  <!--        <label for="genre-select" class="filter-label">-->
+  <!--          <i class="fas fa-film"></i>-->
+  <!--          Genre-->
+  <!--        </label>-->
+  <!--        <select-->
+  <!--          id="genre-select"-->
+  <!--          (change)="onFilterTypeChange($event)"-->
+  <!--          class="filter-select"-->
+  <!--        >-->
+  <!--          <option value="AUCUN_FILTER" selected>Tous les genres</option>-->
+  <!--          <option value="ACTION">Action</option>-->
+  <!--          <option value="AVENTURE">Aventure</option>-->
+  <!--          <option value="COMEDIE">Comédie</option>-->
+  <!--          <option value="DRAME">Drame</option>-->
+  <!--          <option value="ROMANCE">Romance</option>-->
+  <!--          <option value="SCIENCE_FICTION">Science-fiction</option>-->
+  <!--          <option value="FANTASTIQUE">Fantastique</option>-->
+  <!--          <option value="HORREUR">Horreur</option>-->
+  <!--          <option value="SUSPENSE">Suspense</option>-->
+  <!--          <option value="POLICIER">Policier</option>-->
+  <!--          <option value="GUERRE">Guerre</option>-->
+  <!--          <option value="HISTORIQUE">Historique</option>-->
+  <!--          <option value="WESTERN">Western</option>-->
+  <!--        </select>-->
+  <!--      </div>-->
+
+  <!--      &lt;!&ndash; Language Filter &ndash;&gt;-->
+  <!--      <div class="filter-group">-->
+  <!--        <label for="language-select" class="filter-label">-->
+  <!--          <i class="fas fa-language"></i>-->
+  <!--          Langue-->
+  <!--        </label>-->
+  <!--        <select-->
+  <!--          id="language-select"-->
+  <!--          (change)="onLanguageChange($event)"-->
+  <!--          class="filter-select"-->
+  <!--        >-->
+  <!--          <option value="AUCUN_FILTER" selected>Toutes les langues</option>-->
+  <!--          <option value="FRENCH">Français</option>-->
+  <!--          <option value="ARABIC">Arabe</option>-->
+  <!--          <option value="ENGLISH">Anglais</option>-->
+  <!--        </select>-->
+  <!--      </div>-->
+
+  <!--      &lt;!&ndash; Age Restriction Filter &ndash;&gt;-->
+  <!--      <div class="filter-group">-->
+  <!--        <label for="age-select" class="filter-label">-->
+  <!--          <i class="fas fa-user-shield"></i>-->
+  <!--          Classification-->
+  <!--        </label>-->
+  <!--        <select-->
+  <!--          id="age-select"-->
+  <!--          (change)="onAgeRestrictionChange($event)"-->
+  <!--          class="filter-select"-->
+  <!--        >-->
+  <!--          <option value="AUCUN_FILTER" selected>Toutes les classifications</option>-->
+  <!--          <option value="TOUT_PUBLIC">Tout public</option>-->
+  <!--          <option value="KIDS">Pour enfant</option>-->
+  <!--          <option value="INTERDIT_MOINS_12">+ 12 ans</option>-->
+  <!--          <option value="INTERDIT_MOINS_16">+ 16 ans</option>-->
+  <!--          <option value="INTERDIT_MOINS_18">+ 18 ans</option>-->
+  <!--        </select>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </div>-->
+  <div class="hero-bottom"></div>
+</section>
+
+<section class="heroes-list">
+  @if (loading) {
+    <div class="loading">
+      <span class="loader"></span>
+    </div>
+  } @else {
+    <div class="container">
+      @if (champions.length > 0) {
+        @for (hero of champions; track hero) {
+          <div class="hero">
+            <img src="champions/{{hero.image}}" alt="Hero Image">
+            <div class="name">
+              <span>{{ hero.name }}</span>
+            </div>
+            <div class="details">
+              <button (click)="addHero(hero)">Ajouter</button>
+              <span>{{ hero.shortDescription }}</span>
+              <p>{{ hero.description }}</p>
+            </div>
+          </div>
+        }
+      } @else {
+        <span>Aucun champion trouvé</span>
+      }
+    </div>
+  }
+</section>

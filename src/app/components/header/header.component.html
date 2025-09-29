@@ -10,10 +10,12 @@
         >Home</a>
       </div>
       <div class="item">
-        <a>Heroes</a>
+        <a routerLink="/heroes" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+        >Heroes</a>
       </div>
       <div class="item">
-        <a>My Heroes</a>
+        <a routerLink="/myheroes" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+        >My Heroes</a>
       </div>
     </div>
   </div>
