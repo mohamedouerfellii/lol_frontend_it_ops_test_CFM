@@ -3,7 +3,8 @@ import {Champion} from "../../core/models/Champion";
 import {ChampionService} from "../../core/services/champion-service/champion.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {MyChampionService} from "../../core/services/my-champion-service/my-champion.service";
-import {min} from "rxjs";
+import {catchError, EMPTY, finalize, min, switchMap, tap} from "rxjs";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-heroes',
@@ -16,6 +17,8 @@ export class HeroesComponent implements OnInit {
 
   champions: Champion[] = [];
   loading: boolean = true;
+  adding: boolean = false;
+
   constructor(
     private _championService: ChampionService,
     private _myChampionService: MyChampionService,
@@ -37,40 +40,28 @@ export class HeroesComponent implements OnInit {
   }
 
   addHero(hero: Champion) {
-    let mines: Champion[] = [];
-    this._myChampionService.getMyChampions().subscribe({
-      next: data => {
-          mines = data;
-        let find = mines.findIndex(c => c.id == hero.id);
-        if( find == -1) {
-          this._myChampionService.createMyChampion(hero).subscribe({
-            next: result => {
-              this.snackBar.open(hero.name + " Ajouté avec succé", 'Fermer', {
-                duration: 3000,
-                panelClass: 'success-snackbar'
-              });
-            },
-            error: err => {
-              this.snackBar.open('Erreur' + " Erreur", 'Fermer', {
-                duration: 3000,
-                panelClass: 'error-snackbar'
-              });
-            }
-          });
-        } else {
-          this.snackBar.open('Alerte' + " Champion déja ajouté", 'Fermer', {
-            duration: 3000,
-            panelClass: 'error-snackbar'
-          });
-        }
-      }, error: err => {
-        this.snackBar.open('Erreur' + " Erreur", 'Fermer', {
-          duration: 3000,
-          panelClass: 'error-snackbar'
+    if (this.adding) return;
+    this.adding = true;
+    this._myChampionService.getChampionById(hero.id).pipe(
+      tap(existing => {
+        this.snackBar.open(`${existing.name} déjà ajouté`, 'Fermer', {
+          duration: 3000, panelClass: 'error-snackbar'
         });
-        console.error("Erreur : " + err);
-      }
-    });
-
+      }),
+      switchMap(() => EMPTY),
+      catchError((err: HttpErrorResponse) => {
+        if (err.status === 404) {
+          return this._myChampionService.createMyChampion(hero).pipe(
+            tap(() => {
+              this.snackBar.open(`${hero.name} ajouté avec succès`, 'Fermer', {
+                duration: 3000, panelClass: 'success-snackbar'
+              });
+            })
+          );
+        }
+        return EMPTY;
+      }),
+      finalize(() => this.adding = false)
+    ).subscribe();
   }
 }

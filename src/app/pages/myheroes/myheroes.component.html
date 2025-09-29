@@ -1,1 +1,41 @@
-<p>myheroes works!</p>
+<section class="hero-section">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">
+      <span class="gradient-text">VOUS</span> CHAMPIONS SONT LÀ
+    </h1>
+    <p class="hero-subtitle">
+      Avec plus de 170 champions disponibles, vous en trouverez forcément un qui vous corresponde. Maîtrisez-en un, ou
+      maîtrisez-les tous.
+    </p>
+  </div>
+  <div class="hero-bottom"></div>
+</section>
+
+<section class="my-heroes">
+  @if (loading) {
+    <div class="loading">
+      <span class="loader"></span>
+    </div>
+  } @else {
+    <div class="container">
+      @if (champions.length > 0) {
+        @for (hero of champions; track hero) {
+          <div class="hero">
+            <img src="champions/{{hero.image}}" alt="Hero Image">
+            <div class="name">
+              <span>{{ hero.name }}</span>
+            </div>
+            <div class="details">
+              <button (click)="addHero(hero)">Ajouter</button>
+              <span>{{ hero.shortDescription }}</span>
+              <p>{{ hero.description }}</p>
+            </div>
+          </div>
+        }
+      } @else {
+        <span>Aucun champion trouvé</span>
+      }
+    </div>
+  }
+</section>

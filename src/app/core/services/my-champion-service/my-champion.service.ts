@@ -6,24 +6,29 @@ import {catchError, Observable} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
+@Injectable({ providedIn: 'root' })
 export class MyChampionService {
+  private readonly API_URL = 'api/mychampions';
 
-  private readonly API_URL: string = "/api/mychampions";
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
-  public getMyChampions(): Observable<Champion[]>{
-    return this.httpClient.get<Champion[]>(this.API_URL );
+  getMyChampions(): Observable<Champion[]> {
+    return this.httpClient.get<Champion[]>(this.API_URL);
   }
 
-  public createMyChampion(champion: Champion){
-    return this.httpClient.post(this.API_URL, champion);
-  }
-
-  public deleteMyChampion(championId: number){
-    return this.httpClient.delete(`${this.API_URL}/${championId}`);
-  }
-
-  public getChampionById(championId: any):Observable<Champion>{
+  getChampionById(championId: number): Observable<Champion> {
     return this.httpClient.get<Champion>(`${this.API_URL}/${championId}`);
+  }
+
+  createMyChampion(champion: Champion): Observable<Champion> {
+    return this.httpClient.post<Champion>(this.API_URL, champion);
+  }
+
+  updateMyChampion(champion: Champion): Observable<Champion> {
+    return this.httpClient.put<Champion>(`${this.API_URL}/${champion.id}`, champion);
+  }
+
+  deleteMyChampion(championId: number): Observable<void> {
+    return this.httpClient.delete<void>(`${this.API_URL}/${championId}`);
   }
 }
