@@ -60,7 +60,9 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "LoL_Test_Technique_CFM:build:production"
+              "buildTarget": "LoL_Test_Technique_CFM:build:production",
+              "baseHref": "/lol_frontend_it_ops_test_CFM/",
+              "deployUrl": "/<lol_frontend_it_ops_test_CFM-name>/"
             },
             "development": {
               "buildTarget": "LoL_Test_Technique_CFM:build:development"
