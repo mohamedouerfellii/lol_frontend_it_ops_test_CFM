@@ -4,20 +4,37 @@
     <div class="logo">
       <img src="header_img.jpg">
     </div>
-    <div class="items">
-      <div class="item">
-        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
-        >Home</a>
+
+    <div [ngClass]="openMenu ? 'navbar active' : 'navbar'">
+      <div class="wrapper">
+
+        <button (click)="showAndHideMenu()" class="nav-close-btn">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
       </div>
-      <div class="item">
-        <a routerLink="/heroes" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
-        >Heroes</a>
+
+      <div class="items">
+
+        <div class="item">
+          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+          >Home</a>
+        </div>
+        <div class="item">
+          <a routerLink="/heroes" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+          >Heroes</a>
+        </div>
+        <div class="item">
+          <a routerLink="/myheroes" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+          >My Heroes</a>
+        </div>
       </div>
-      <div class="item">
-        <a routerLink="/myheroes" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
-        >My Heroes</a>
-      </div>
+
     </div>
+    <button (click)="showAndHideMenu()" class="nav-open-btn">
+      <i class="fa-solid fa-bars"></i>
+    </button>
   </div>
+
+  <div (click)="showAndHideMenu()" [ngClass]="openMenu ? 'overlay active' : 'overlay'"></div>
 
 </header>
