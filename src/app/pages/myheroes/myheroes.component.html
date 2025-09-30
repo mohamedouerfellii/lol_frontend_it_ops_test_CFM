@@ -12,6 +12,30 @@
   <div class="hero-bottom"></div>
 </section>
 
-<section class="my-heroes">
-
+<section class="heroes-list">
+  @if (loading) {
+    <div class="loading">
+      <span class="loader"></span>
+    </div>
+  } @else {
+    <div class="container">
+      @if (champions.length > 0) {
+        @for (hero of champions; track hero) {
+          <div class="hero">
+            <img src="champions/{{hero.image}}" alt="Hero Image">
+            <div class="name">
+              <span>{{ hero.name }}</span>
+            </div>
+            <div class="details">
+              <button (click)="deleteHero(hero)">Supprimer</button>
+              <span>{{ hero.shortDescription }}</span>
+              <p>{{ hero.description }}</p>
+            </div>
+          </div>
+        }
+      } @else {
+        <span class="msg">Aucun champion trouvé, CHOISISSEZ VOTRE</span>
+      }
+    </div>
+  }
 </section>

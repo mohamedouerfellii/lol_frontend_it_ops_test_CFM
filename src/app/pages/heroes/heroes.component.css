@@ -27,6 +27,10 @@
     opacity: 1;
   }
 
+  .details button {
+    transform: translateY(65px);
+  }
+
 }
 
 .hero img {
@@ -66,6 +70,8 @@
 }
 
 .hero .details button {
+  position: absolute;
+  top: -50px;
   background-color: var(--yellow);
   color: var(--white);
   padding: 5px 10px;
@@ -74,7 +80,7 @@
   font-weight: var(--fw-500);
   text-transform: uppercase;
   cursor: pointer;
-  transition: opacity 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .hero .details button:hover {
@@ -87,5 +93,40 @@
 
 mat-form-field {
   margin-right: 12px;
+}
+
+/*-----------------------------------*\
+  #MEDIA QUERIES
+\*-----------------------------------*/
+/**
+ * responsive max-width 768px screen
+ */
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 600px) {
+  .heroes-list {
+    padding: 1.5rem;
+  }
+  .container {
+    grid-template-columns: repeat(2, auto);
+  }
+
+  .hero img {
+    width: 220px;
+    height: 320px;
+  }
+
+  .hero .name {
+    font-size: 20px;
+  }
+
+  .hero .details {
+    font-size: 10px;
+    user-select: none;
+    padding: 10px;
+  }
+
 }
 

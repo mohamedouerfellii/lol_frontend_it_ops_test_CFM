@@ -60,6 +60,7 @@
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
+  user-select: none;
   /*border: 1px solid red;*/
 }
 
@@ -262,4 +263,36 @@ button {
   color: #d1d5db;
   margin-bottom: 0;
   line-height: 1.6;
+}
+
+/*-----------------------------------*\
+  #MEDIA QUERIES
+\*-----------------------------------*/
+/**
+ * responsive max-width 768px screen
+ */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 150px 0 80px;
+  }
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-section {
+    padding: 150px 0 80px;
+  }
+  .hero-title {
+    font-size: var(--fs-3);
+  }
+
+  .hero-subtitle {
+    font-size: 15px;
+  }
 }
