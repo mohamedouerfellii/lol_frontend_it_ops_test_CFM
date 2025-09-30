@@ -28,7 +28,7 @@
   }
 
   .details button {
-    transform: translateY(65px);
+    transform: translateY(60px);
   }
 
 }
@@ -96,6 +96,9 @@ mat-form-field {
 }
 
 .msg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 11rem;
 }
 /*-----------------------------------*\

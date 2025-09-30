@@ -200,6 +200,9 @@
 }
 
 @media (max-width: 600px) {
+  .banner .content span {
+    font-size: 0.8rem;
+  }
   /**** CHAMPIONS ****/
   .champions {
     padding: 2rem 3rem;
