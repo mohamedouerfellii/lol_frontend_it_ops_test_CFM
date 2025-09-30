@@ -14,6 +14,7 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/lo-l-test-technique-cfm",
+            "baseHref": "/lol_frontend_it_ops_test_CFM/",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -92,6 +93,9 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
